@@ -15,7 +15,7 @@ Route::get('blog', function () {
 	return view('blog');
 });
 
-Route::get('Dell', function () {
+Route::get('dell', function () {
 	return view('pertemuan5');
 });
 
