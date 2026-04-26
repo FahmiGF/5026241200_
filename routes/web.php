@@ -15,8 +15,36 @@ Route::get('blog', function () {
 	return view('blog');
 });
 
-Route::get('pert5', function () {
+Route::get('Dell', function () {
 	return view('pertemuan5');
+});
+
+Route::get('welcome', function () {
+	return view('welcome');
+});
+
+Route::get('pert1', function () {
+	return view('intro');
+});
+
+Route::get('pert2', function () {
+	return view('news');
+});
+
+Route::get('pert3', function () {
+	return view('contoh');
+});
+
+Route::get('pert4', function () {
+	return view('5026241200');
+});
+
+Route::get('pert6', function () {
+	return view('tugasafterpertemuan5');  // Linktree
+});
+
+Route::get('pert5', function () {
+	return view('indexhub'); // Hub untuk ke IG, Linktree dan lain2
 });
 
 Route::get('dosen', [DosenController::class, 'index']);
