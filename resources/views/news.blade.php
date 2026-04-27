@@ -5,7 +5,7 @@
 </title>
     <style>
         body {
-            background-color: rgb(24, 23, 23);
+            background-color: rgb(214, 188, 188);
             margin-top: 50px;
             margin-bottom: 100px;
             margin-right: 80px;

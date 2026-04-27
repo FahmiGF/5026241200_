@@ -177,7 +177,7 @@
             Sejarah dan tentang bakery-bakery tersebut </span>
     </p>
     <p>
-        <center> <img src="https://www.igors-pastry.com/img/upload/7102.jpeg" width="600px" height="400px" alt="">
+        <center> <img src="https://statik.tempo.co/data/2014/08/30/id_320044/320044_620.jpg" width="600px" height="400px" alt="">
         </center>
     </p>
     <p class="imgtitle"> Bentuk tampak depan Igor's Bakery
