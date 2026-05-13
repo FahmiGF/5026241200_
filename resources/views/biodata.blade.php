@@ -8,19 +8,17 @@
 	<h1>Tutorial Laravel</h1>
 	<a href="https://www.malasngoding.com/category/laravel">www.malasngoding.com</a>
 
-    <br>
+	<br>
 
-	<p>Nama : {{ $nama }} -<?php echo $nama ; ?></p> </p>
-    <p>Umur : {{ $umur }} -<?php echo $umur ; ?></p> </p>
-    <p>Mata Pelajaran</p>
-	<ul>
+	<p>Nama : {{ $nama }} - <?php echo $nama; ?></p>
+    <p>Umur Gweh : {{$umur}} - <?php echo $umur; ?></p>
 
-		@foreach($matkul as $m)
+    <p>Mata Pelajaran </p>
+    <ul>
+        @foreach($matkul as $m)
+            <li>{{ $m }}</li>
+        @endforeach
+    </ul>
 
-		    <li>{{ $m }}</li>
-
-		@endforeach
-
-	</ul>
 </body>
 </html>
