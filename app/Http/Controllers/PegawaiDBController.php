@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class PegawaiDBController extends Controller
 {
-     public function index()
+    public function index()
     {
     	// mengambil data dari table pegawai
-    	$pegawai = DB::table('pegawai')->get();
-
-    		// mengirim data pegawai ke view index
+    	//$pegawai = DB::table('pegawai')->get(); //jika tampilan hasil bukan pagination
+        $pegawai = DB::table('pegawai')->paginate(10); //jika tampilan hasil pagination
+    	// mengirim data pegawai ke view index
     	return view('indexx',['pegawai' => $pegawai]);
-    }
 
+    }
 
     	// method untuk menampilkan view form tambah pegawai
 	public function tambah()
@@ -73,5 +73,20 @@ class PegawaiDBController extends Controller
 
 		// alihkan halaman ke halaman pegawai
 		return redirect('/pegawai');
+	}
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$pegawai = DB::table('pegawai')
+		->where('pegawai_nama','like',"%".$cari."%")
+		->paginate();
+
+    		// mengirim data pegawai ke view index
+		return view('indexx',['pegawai' => $pegawai]);
+
 	}
 }
