@@ -6,7 +6,7 @@ use App\Http\Controllers\PegawaiDBController ;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\keranjangController;
-
+use App\Http\Controllers\NilaiKuliahController;
 
 
 Route::get('/', function () {
@@ -74,6 +74,18 @@ Route::get('/keranjangbelanja', [keranjangController::class, 'index_keranjang'])
 Route::get('/keranjangbeli/{id}', [keranjangController::class, 'beli']);
 Route::post('/keranjangstore', [keranjangController::class, 'storeKeranjang']);
 Route::get('/keranjangbatal/{id}', [keranjangController::class, 'batal']);
+
+// Memanggil Controller
+// Controller Nilai Kuliah
+
+// CRUD
+// Route CRUD Nilai Kuliah
+Route::get('/nilaikuliah', [NilaiKuliahController::class, 'index']);
+Route::get('/nilaikuliah/tambah', [NilaiKuliahController::class, 'tambah']);
+Route::post('/nilaikuliah/store', [NilaiKuliahController::class, 'store']);
+Route::get('/nilaikuliah/edit/{id}', [NilaiKuliahController::class, 'edit']);
+Route::post('/nilaikuliah/update', [NilaiKuliahController::class, 'update']);
+Route::get('/nilaikuliah/hapus/{id}', [NilaiKuliahController::class, 'hapus']);
 
 
 //
