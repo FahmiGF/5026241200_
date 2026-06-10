@@ -17,7 +17,7 @@
             <th>SKS</th>
             <th>Nilai Huruf</th>
             <th>Bobot</th>
-            <th>Opsi</th>
+
         </tr>
     </thead>
     <tbody>
@@ -29,16 +29,7 @@
             <td>{{ $n->SKS }}</td>
             <td>{{ $n->nilaihuruf }}</td>
             <td>{{ $n->bobot }}</td>
-            <td>
-                <a href="/nilaikuliah/edit/{{ $n->ID }}"
-                    class="btn btn-warning btn-sm">
-                    Edit
-                </a>
-                <a href="/nilaikuliah/hapus/{{ $n->ID }}"
-                    class="btn btn-danger btn-sm">
-                    Hapus
-                </a>
-            </td>
+
         </tr>
         @endforeach
     </tbody>

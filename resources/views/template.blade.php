@@ -20,30 +20,22 @@
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <div class="container-fluid">
                 <ul class="navbar-nav">
+
                     <li class="nav-item">
                         <a class="nav-link active" href="/pegawai">Pegawai</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PR 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PR 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PR 3</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="/keranjangbelanja">Keranjang Belanja</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="/nilaikuliah">Nilai Mahasiswa</a>
-                    </li>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="/sepeda">Sepeda</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="/siswa">Siswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/keranjangbelanja">Keranjang Belanja</a>
+                    </li> <!-- Lat EAS laki-laki -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/nilaikuliah">Nilai Mahasiswa</a>
+                    </li><!-- Lat EAS perempuan -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sepeda"> Sepeda </a>
+                        <!--Lat Pra-EAS -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">EAS</a>
