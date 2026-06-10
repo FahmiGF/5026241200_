@@ -7,7 +7,8 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\keranjangController;
 use App\Http\Controllers\NilaiKuliahController;
-
+use App\Http\Controllers\SepedaController;
+use App\Http\Controllers\SiswaController ;
 
 Route::get('/', function () {
     return view('welcome');
@@ -88,18 +89,22 @@ Route::post('/nilaikuliah/update', [NilaiKuliahController::class, 'update']);
 Route::get('/nilaikuliah/hapus/{id}', [NilaiKuliahController::class, 'hapus']);
 
 
+Route::get('/sepeda', [SepedaController::class, 'indexSepeda']);
+Route::get('/sepeda/tambah', [SepedaController::class, 'tambah_sepeda']);
+Route::post('/sepeda/store', [SepedaController::class, 'store_sepeda']);
+Route::get('/sepeda/edit/{id}', [SepedaController::class, 'edit_sepeda']);
+Route::post('/sepeda/update', [SepedaController::class, 'update_sepeda']);
+Route::get('/sepeda/hapus/{id}', [SepedaController::class, 'hapus_sepeda']);
+Route::get('/sepeda/cari', [SepedaController::class, 'cari_sepeda']);
 //
 
 // jangan di replace file nya , copy paste kan perintahnya
 //use App\Http\Controllers\SiswaController;
-
-
-
 //route CRUD siswa
-/*Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
-Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
-Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
-Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
-Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
-Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
-*/
+Route::get('/siswa', [SiswaController::class, 'index'])->name('index_siswa');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('create_siswa');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('store_siswa');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('edit_siswa');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('update_siswa');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('destroy_siswa');
+

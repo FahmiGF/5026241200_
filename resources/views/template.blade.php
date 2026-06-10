@@ -38,6 +38,13 @@
                      <li class="nav-item">
                         <a class="nav-link active" href="/nilaikuliah">Nilai Mahasiswa</a>
                     </li>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="/sepeda">Sepeda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/siswa">Siswa</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">EAS</a>
                     </li>
