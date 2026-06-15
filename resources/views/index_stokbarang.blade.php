@@ -16,38 +16,37 @@
                 <th>Terjual</th>
                 <th>Stok Akhir</th>
                 <th>Persentase Penjualan</th>
+
             </tr>
         </thead>
         <tbody>
             @forelse($stok_barang as $row)
                 <tr>
-                    <td>{{ $row->kodebarang }}</td>
-                    <td>{{ $row->stokawal }}</td>
-                    <td>{{ $row->terjual }}</td>
 
-                    {{-- Perhitungan Stok Akhir = Stok Awal - Terjual --}}
-                    <td>{{ $row->stokawal - $row->terjual }}</td>
+                    <td>{{ $row->kodebarang ?? $row->kode_barang ?? '' }}</td>
+                    <td>{{ $stokAwal = $row->stok_awal ?? $row->stokawal ?? 0 }}</td>
+                    <td>{{ $terjual = $row->terjual ?? 0 }}</td>
 
-                    {{-- Perhitungan Persentase Penjualan = Stok Akhir / Stok Awal x 100% --}}
+                    {{-- Hitung Stok Akhir --}}
+                    <td>{{ $stokAwal - $terjual }}</td>
+
+                    {{-- Hitung Persentase --}}
                     <td>
-                        @if ($row->stokawal > 0)
-                            {{ number_format((($row->stokawal - $row->terjual) / $row->stokawal) * 100, 2) }}%
+                        @if ($stokAwal > 0)
+                            {{ number_format((($stokAwal - $terjual) / $stokAwal) * 100, 2) }}%
                         @else
                             0%
                         @endif
                     </td>
+
+
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">Belum ada data stok barang.</td>
+                    <td colspan="6" class="text-center">Belum ada data stok barang.</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
-
-    {{-- Link Pagination jika dibutuhkan --}}
-    <div class="d-flex justify-content-center">
-        {{ $stok_barang->links() }}
-    </div>
 
 @endsection
