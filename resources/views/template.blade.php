@@ -39,7 +39,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/stokbarang">Stok Barang</a>
+                        <a class="nav-link" href="/eas">Stok Barang</a>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,7 @@
 @section('title', 'Tambah Data Stok Barang')
 @section('konten')
 
-    <a href="/stokbarang" class="btn btn-secondary mb-4">Kembali</a>
+    <a href="/eas" class="btn btn-secondary mb-4">Kembali</a>
 
     <div class="card">
         <div class="card-header">
@@ -13,29 +13,26 @@
                 {{ csrf_field() }}
 
                 <div class="row mb-3">
-                    <label for="merksepeda" class="col-sm-2 col-form-label">Merk stok barang</label>
+                    <label for="kodebarang" class="col-sm-2 col-form-label">Kode Barang</label>
                     <div class="col-sm-10">
-                        <input type="text" name="merksepeda" id="merksepeda" class="form-control" maxlength="30"
-                            placeholder="Maksimal 30 karakter. Contoh: Erigo">
+                        <input type="text" name="kodebarang" id="kodebarang" class="form-control" maxlength="10"
+                            placeholder="Contoh: BRG001" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="stocksepeda" class="col-sm-2 col-form-label">Stok Stok Barang</label>
+                    <label for="stokawal" class="col-sm-2 col-form-label">Stok Awal</label>
                     <div class="col-sm-10">
-                        <input type="number" name="stocksepeda" id="stocksepeda" class="form-control"
-                            placeholder="Contoh: 50">
+                        <input type="number" name="stokawal" id="stokawal" class="form-control"
+                            placeholder="Contoh: 100" min="0" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="terjual" class="col-sm-2 col-form-label">terjual</label>
+                    <label for="terjual" class="col-sm-2 col-form-label">Terjual</label>
                     <div class="col-sm-10">
-                        <select name="terjual" id="terjual" class="form-select" required>
-                            <option value="" disabled selected>Pilih Status Terjual</option>
-                            <option value="1">Tersedia (Y)</option>
-                            <option value="0">Habis (N)</option>
-                        </select>
+                        <input type="number" name="terjual" id="terjual" class="form-control"
+                            placeholder="Contoh: 25" min="0" required>
                     </div>
                 </div>
 
@@ -48,40 +45,40 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function validasiForm() {
-            let merk = document.getElementById('kodebarang').value.trim();
-            let stok = document.getElementById('stok_awal').value.trim();
-            let tersedia = document.getElementById('terjual').value;
+            let kodebarang = document.getElementById('kodebarang').value.trim();
+            let stokawal = document.getElementById('stokawal').value;
+            let terjual = document.getElementById('terjual').value;
+            let intStokAwal = parseInt(stokawal);
+            let intTerjual = parseInt(terjual);
 
-            if (merk === '') {
-                Swal.fire({
+            if (kodebarang === '')
+            {
+                Swal.fire(
+                    {
                     title: "Kesalahan Input Data!",
                     text: "Kode barang wajib diisi",
                     icon: "error"
                 });
                 return false;
             }
-            if (merk.length > 30) {
-                Swal.fire({
+            if (kodebarang.length > 10)
+            {
+                Swal.fire(
+                    {
                     title: "Kesalahan Input Data!",
-                    text: "kode barang maksimal 30 karakter",
+                    text: "Kode barang maksimal hanya boleh 10 karakter",
                     icon: "error"
                 });
                 return false;
             }
-            if (stok === '') {
+            if (intTerjual > intStokAwal)
+            {
                 Swal.fire({
-                    title: "Kesalahan Input Data!",
-                    text: "Stok awal wajib diisi",
-                    icon: "error"
-                });
-                return false;
-            }
-            if (tersedia === '') {
-                Swal.fire({
-                    title: "Kesalahan Input Data!",
-                    text: "Status terjual wajib diisi",
+                    title: "Kesalahan Validasi!",
+                    text: "Jumlah Terjual tidak boleh lebih besar dari Stok Awal!",
                     icon: "error"
                 });
                 return false;

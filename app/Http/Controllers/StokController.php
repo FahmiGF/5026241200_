@@ -6,34 +6,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class StokController extends Controller {
+
     public function index_stok() {
+        // Mengambil data sesuai dengan nama tabel di database
         $stok_barang = DB::table('stok_barang')->paginate(10);
-        // DIUBAH: ditambahkan 'stok_barang.' di depan nama view
         return view('index_stokbarang', ['stok_barang' => $stok_barang]);
     }
 
     public function tambah_stokbarang() {
-        // DIUBAH: ditambahkan 'stok_barang.' di depan nama view
         return view('tambah_stokbarang');
     }
-    // tambah nanti aja
 
     public function store_stokbarang(Request $request) {
-        DB::table('stok_barang')->insert([
-            'kodebarang'  => $request->kodebarang,
-            'stok_awal' => $request->stok_awal,
-            'terjual'  => $request->terjual
+        // Validasi Laravel (Opsional tapi baik untuk keamanan)
+        $request->validate([
+            'kodebarang' => 'required,
+            'stokawal'   => 'required,
+            'terjual'    => 'required,
         ]);
-        return redirect('/stokbarang');
+
+        // SINKRONKAN: Menggunakan kolom 'stokawal' sesuai database di foto Anda
+        DB::table('stok_barang')->insert([
+            'kodebarang' => $request->kodebarang,
+            'stokawal'   => $request->stokawal,
+            'terjual'    => $request->terjual
+        ]);
+
+        return redirect('/eas'); // Sesuaikan dengan route halaman utama soal UAS Anda
     }
 
     public function update_stokbarang(Request $request) {
         DB::table('stok_barang')->where('kodebarang', $request->id)->update([
-            'stok_awal' => $request->stok_awal,
+            'stokawal' => $request->stokawal,
             'terjual'  => $request->terjual
         ]);
-        return redirect('/stokbarang');
+        return redirect('/eas');
     }
-
-
 }

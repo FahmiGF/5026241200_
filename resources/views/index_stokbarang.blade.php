@@ -4,7 +4,6 @@
 
     <h2>Data Stok Barang</h2>
 
-
     <a href="/stokbarang/tambah" class="btn btn-primary">Tambah Data</a>
 
     <br><br>
@@ -17,42 +16,38 @@
                 <th>Terjual</th>
                 <th>Stok Akhir</th>
                 <th>Persentase Penjualan</th>
-
             </tr>
         </thead>
         <tbody>
             @forelse($stok_barang as $row)
-                 <tr>
-        <td>{{ $row->kodebarang }}</td>
-        <td>{{ $row->stok_awal }}</td>
-        <td>{{ $row->terjual }}</td>
+                <tr>
+                    <td>{{ $row->kodebarang }}</td>
+                    <td>{{ $row->stokawal }}</td>
+                    <td>{{ $row->terjual }}</td>
 
-        {{-- Hitung Stok Akhir: Stok Awal - Terjual --}}
-        <td>{{ $row->stok_awal - $row->terjual }}</td>
+                    {{-- Perhitungan Stok Akhir = Stok Awal - Terjual --}}
+                    <td>{{ $row->stokawal - $row->terjual }}</td>
 
-        {{-- Hitung Persentase: (Stok Akhir / Stok Awal) x 100 --}}
-        <td>
-            @if ($row->stok_awal > 0)
-                {{ number_format((($row->stok_awal - $row->terjual) / $row->stok_awal) * 100, 2) }}%
-            @else
-                0%
-            @endif
-        </td>
+                    {{-- Perhitungan Persentase Penjualan = Stok Akhir / Stok Awal x 100% --}}
+                    <td>
+                        @if ($row->stokawal > 0)
+                            {{ number_format((($row->stokawal - $row->terjual) / $row->stokawal) * 100, 2) }}%
+                        @else
+                            0%
+                        @endif
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center">Belum ada data stok barang.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
 
-        {{-- Tombol Aksi --}}
-        <td>
-            <a href="/stokbarang/edit/{{ $row->kodebarang }}" class="btn btn-warning">Edit</a>
+    {{-- Link Pagination jika dibutuhkan --}}
+    <div class="d-flex justify-content-center">
+        {{ $stok_barang->links() }}
+    </div>
 
-            <form action="/stokbarang/hapus/{{ $row->kodebarang }}" method="POST" style="display:inline;"
-                onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Hapus</button>
-            </form>
-        </td>
-    </tr>
-@empty
-    <tr>
-        <td colspan="6" class="text-center">Belum ada data stok barang.</td>
-    </tr>
-@endforelse
+@endsection

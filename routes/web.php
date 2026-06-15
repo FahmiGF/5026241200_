@@ -134,3 +134,4 @@ Route::get('/stokbarang/edit/{id}', [StokController::class, 'edit_stokbarang']);
 Route::post('/stokbarang/update', [StokController::class, 'update_stokbarang']);
 Route::get('/stokbarang/hapus/{id}', [StokController::class, 'hapus_stokbarang']);
 Route::get('/stokbarang/cari', [StokController::class, 'cari_stokbarang']);
+Route::get('/eas', [StokController::class, 'index_stok']);
