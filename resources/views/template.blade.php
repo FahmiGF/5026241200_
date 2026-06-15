@@ -37,8 +37,9 @@
                         <a class="nav-link" href="/sepeda"> Sepeda </a>
                         <!--Lat Pra-EAS -->
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EAS</a>
+                        <a class="nav-link" href="/stokbarang">Stok Barang</a>
                     </li>
                 </ul>
             </div>

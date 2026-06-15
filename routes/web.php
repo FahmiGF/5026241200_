@@ -9,6 +9,9 @@ use App\Http\Controllers\keranjangController;
 use App\Http\Controllers\NilaiKuliahController;
 use App\Http\Controllers\SepedaController;
 use App\Http\Controllers\SiswaController ;
+use App\Http\Controllers\BukuController ;
+use App\Http\Controllers\ObatController;
+use App\Http\Controllers\StokController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -108,3 +111,26 @@ Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('edit_si
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('update_siswa');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('destroy_siswa');
 
+Route::get('/keranjangbelanja', [keranjangController::class, 'index_keranjang']);
+Route::get('/keranjangbeli/{id}', [keranjangController::class, 'beli']);
+Route::post('/keranjangstore', [keranjangController::class, 'storeKeranjang']);
+Route::get('/keranjangbatal/{id}', [keranjangController::class, 'batal']);
+
+Route::get('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('pinjam_buku');
+Route::get('/buku', [BukuController::class, 'index_buku'])->name('index_buku');
+
+Route::get('/obat', [ObatController::class, 'indexObat']);
+Route::get('/obat/tambah', [ObatController::class, 'tambah_obat']);
+Route::post('/obat/store', [ObatController::class, 'store_obat']);
+Route::get('/obat/edit/{id}', [ObatController::class, 'edit_obat']);
+Route::post('/obat/update', [ObatController::class, 'update_obat']);
+Route::get('/obat/hapus/{id}', [ObatController::class, 'hapus_obat']);
+Route::get('/obat/cari', [ObatController::class, 'cari_obat']);
+
+Route::get('/stokbarang', [StokController::class, 'index_stok']);
+Route::get('/stokbarang/tambah', [StokController::class, 'tambah_stokbarang']);
+Route::post('/stokbarang/store', [StokController::class, 'store_stokbarang']);
+Route::get('/stokbarang/edit/{id}', [StokController::class, 'edit_stokbarang']);
+Route::post('/stokbarang/update', [StokController::class, 'update_stokbarang']);
+Route::get('/stokbarang/hapus/{id}', [StokController::class, 'hapus_stokbarang']);
+Route::get('/stokbarang/cari', [StokController::class, 'cari_stokbarang']);
